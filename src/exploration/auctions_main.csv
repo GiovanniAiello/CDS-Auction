@@ -1,0 +1,201 @@
+identifier,auction_name,date,ticker,box_title,multiple_final_prices,final_price,IMM,NOI
+20051104_delphi_CDS,Delphi,4th November 2005,delphi,CDS,False,63.375,66,$99 million to sell
+20061128_dura_subordinated_CDS,Dura Subordinated,28th November 2006,dura_subordinated,CDS,False,3.5,4.5,$77 million to sell
+20060331_dana_corporation_CDS,Dana Corporation,31st March 2006,dana_corporation,CDS,False,75,75.125,$41 million to sell
+20060117_calpine_CDS,Calpine,17th January 2006,calpine,CDS,False,19.125,20,$45 million to sell
+20061128_dura_senior_CDS,Dura Senior,"November 28, 2006",dura_senior,CDS,False,24.125,24.875,$20m (offer side)
+20071023_movie_gallery_LCDS,Movie Gallery,"October 23, 2007",movie_gallery,LCDS,False,91.5,90.875,$30.5 million (bid side)
+20081217_hawtel_CDS,Hawaiian Telcom,17th December 2008,hawtel,CDS,False,40.125,39.125,$8.5 million to sell
+20081209_masoni_CDS,Masonite,9th December 2008,masoni,CDS,False,52.5,51.125,$18 million to buy
+20081106_kaupth_Senior,Kaupthing Bank,6th November 2008,kaupth,Senior,True,6.625,5.625,€974 million to sell
+20081106_kaupth_Subordinated,Kaupthing Bank,6th November 2008,kaupth,Subordinated,True,2.375,1.375,€11 million to sell
+20081105_glitni_Senior,Glitnir,5th November 2008,glitni,Senior,True,3,2,€187 million to sell
+20081105_glitni_Subordinated,Glitnir,5th November 2008,glitni,Subordinated,True,0.125,1.125,€55 million to sell
+20081104_landsb_Senior,Landsbanki,4th November 2008,landsb,Senior,True,1.25,3.375,€454 million to sell
+20081104_landsb_Subordinated,Landsbanki,4th November 2008,landsb,Subordinated,True,0.125,1.375,€63 million to sell
+20081023_washmu_CDS,Washington Mutual,23rd October 2008,washmu,CDS,False,57,63.625,$988 million to sell.
+20081010_lehbro_CDS,Lehman Brothers,10th October 2008,lehbro,CDS,False,8.625,9.75,$4.92 billion to sell
+20081006_famefrmc_Fannie-Mae-Senior,Fannie Mae and Freddie Mac,6th October 2008,famefrmc,Fannie-Mae-Senior,True,91.51,92.4,$12 million to buy
+20081006_famefrmc_Fannie-Mae-Subordinated,Fannie Mae and Freddie Mac,6th October 2008,famefrmc,Fannie-Mae-Subordinated,True,99.9,92.65,$608 million to buy
+20081006_famefrmc_Freddie-Mac-Senior,Fannie Mae and Freddie Mac,6th October 2008,famefrmc,Freddie-Mac-Senior,True,94,93.75,$79 million to buy
+20081006_famefrmc_Freddie-Mac-Subordinated,Fannie Mae and Freddie Mac,6th October 2008,famefrmc,Freddie-Mac-Subordinated,True,98,93.8,$542 million to buy
+20081002_tembec_CDS,Tembec,2nd October 2008,tembec,CDS,False,83,85.875,$60 million to sell
+20080219_quebcr_CDS,Quebecor,19th February 2008,quebcr,CDS,False,41.25,42.125,$66 Million to sell
+20091216_nafukr_CDS,NJSC Naftogaz of Ukraine,16th December 2009,nafukr,CDS,False,83.5,84.125,$135.645 million to sell
+20091215_hellas_CDS-Subordinated,Hellas II,15th December 2009,hellas,CDS-Subordinated,False,1.375,1.25,€246.243 million to sell
+20091210_thomsn_CDS,Thomson  (Bankruptcy),10th December 2009,thomsn,CDS,False,77.75,75.75,€57.495 million to sell
+20091120_citgrp_CDS,CIT,20th November 2009,citgrp,CDS,False,68.125,70.25,$728.98 million to sell
+20091110_mgminc_LCDS,MGM,10th November 2009,mgminc,LCDS,False,58.5,58.75,$23 million to sell
+20091022_thmbrd_2.5-year-maturity-bucket,Thomson,22nd October 2009,thmbrd,2.5-year-maturity-bucket,True,96.25,91.25,€80.967 million to sell
+20091022_thmbrd_5-year-maturity-bucket,Thomson,22nd October 2009,thmbrd,5-year-maturity-bucket,True,65.125,80.375,€220.669 million to sell
+20091022_thmbrd_7.5-year-maturity-bucket,Thomson,22nd October 2009,thmbrd,7.5-year-maturity-bucket,True,63.25,80,€147.568 million to sell
+20091008_sspflt_SSP,SSP,8th October 2009,sspflt,SSP,False,52.375,52.375,£0
+20090730_brabin_Senior,Bradford & Bingley,30th July 2009,brabin,Senior,True,94.625,85.875,€145.334 million to buy
+20090730_brabin_Subordinated,Bradford & Bingley,30th July 2009,brabin,Subordinated,True,5,6,€27.67 million to sell
+20090721_leacor_CDS,Lear Corp,21st July 2009,leacor,CDS,True,38.5,40.125,$172.528 million to sell
+20090721_leacor_LCDS,Lear Corp,21st July 2009,leacor,LCDS,True,66,67.75,$70 million to sell
+20090709_sixflg_CDS,Six Flags,9th July 2009,sixflg,CDS,True,14,13,$62 million to buy
+20090709_sixflg_LCDS,Six Flags,9th July 2009,sixflg,LCDS,True,96.125,95.75,$19 million to sell
+20090624_rhdltd_LCDS,R.H. Donnelley Inc.,24th June 2009,rhdltd,LCDS,False,78.125,77.125,$37 million to sell
+20090624_dexest_LCDS,Dex Media East,24th June 2009,dexest,LCDS,False,77.25,76.375,$17 million to sell
+20090624_dexwst_LCDS,Dex Media West,24th June 2009,dexwst,LCDS,False,82.875,83.625,$13 million to sell
+20090623_viston_CDS,Visteon,23rd June 2009,viston,CDS,True,3,4.75,$179.677 million to sell
+20090623_viston_LCDS,Visteon,23rd June 2009,viston,LCDS,True,39,40,$40 million to sell
+20090618_jscali_CDS,JSC Alliance Bank,18th June 2009,jscali,CDS,False,16.75,16.375,$28 million to buy
+20090612_genmtr_CDS,General Motors,12th June 2009,genmtr,CDS,True,12.5,11,$529.098 million to buy
+20090612_genmtr_LCDS,General Motors,12th June 2009,genmtr,LCDS,True,97.5,97.25,$46 million to sell
+20090611_rhdcor_CDS,R.H. Donnelley Corp.,11th June 2009,rhdcor,CDS,False,4.875,4.875,$143.9 million to sell
+20090610_geguco_LCDS,Georgia Gulf,10th June 2009,geguco,LCDS,False,83,81.125,$16 million to buy
+20090610_jscbta_CDS,JSC BTA Bank,10th June 2009,jscbta,CDS,False,10.25,22.25,$809 million to sell
+20090609_hliop_LCDS,HLI Operating Company,9th June 2009,hliop,LCDS,False,9.5,9.625,$7 million to sell
+20090528_edscha_LCDS,Edscha,28th May 2009,edscha,LCDS,False,3.75,3.75,€0
+20090527_syncra_CDS,Syncora,27th May 2009,syncra,CDS,False,15,12.375,$234.924 million to buy
+20090513_gegrpr_LCDS,General Growth Properties,13th May 2009,gegrpr,LCDS,False,44.25,43.25,$20 million to sell
+20090512_bowatr_CDS,Bowater,12th May 2009,bowatr,CDS,False,15,14,$117.583 million to sell
+20090423_idearc_CDS,Idearc,23rd April 2009,idearc,CDS,True,1.75,1.375,$889.557 million to sell
+20090423_idearc_LCDS,Idearc,23rd April 2009,idearc,LCDS,True,38.5,37.5,$10 million to sell
+20090422_capmrk_CDS,Capmark,22nd April 2009,capmrk,CDS,False,23.375,22.375,$115.05 million to sell
+20090421_chacom_CDS,Charter Communications,21st April 2009,chacom,CDS,True,2.375,1.375,$49.2 million to sell
+20090421_chacom_LCDS,Charter Communications,21st April 2009,chacom,LCDS,True,78,79.25,$40 million to sell
+20090417_abitbi_CDS,Abitibi,17th April 2009,abitbi,CDS,False,3.25,3.75,$234.247 million to sell
+20090416_lyobas_CDS,LyondellBasell,16th April 2009,lyobas,CDS,False,2,3.375,€95.245 million to sell
+20090415_rouse_CDS,Rouse,15th April 2009,rouse,CDS,False,29.25,28.25,$8.585 million to sell
+20090414_grtlak_CDS,Great Lakes,14th April 2009,grtlak,CDS,False,18.25,22.875,$130.632 million to sell
+20090414_chmtra_CDS,Chemtura,14th April 2009,chmtra,CDS,False,15,20.875,$98.738 million to sell
+20090331_stncas_CDS,Station Casinos,31st March 2009,stncas,CDS,False,32,29.375,$24 million to buy
+20090309_aleris_LCDS,Aleris,9th March 2009,aleris,LCDS,False,8,3.5,$40 million to buy
+20090226_fereti_LCDS,Ferretti,26th February 2009,fereti,LCDS,False,10.875,10.875,€0
+20090219_smurfs_CDS,Smurfit-Stone,19th February 2009,smurfs,CDS,True,8.875,7.875,$128.675 million to sell
+20090219_smurfs_LCDS,Smurfit-Stone,19th February 2009,smurfs,LCDS,True,65.375,68.25,$40 million to sell
+20090210_norcor_CDS,Nortel Corp,10th February 2009,norcor,CDS,False,12,12.125,$290.47 million to sell
+20090210_norltd_CDS,Nortel Ltd.,10th February 2009,norltd,CDS,False,6.5,7.625,$12.916 million to sell
+20090209_br_1st-Lien,British Vita,9th February 2009,br,1st-Lien,True,15.5,17.125,£11 million to sell
+20090209_br_2nd-Lien,British Vita,9th February 2009,br,2nd-Lien,True,2.875,2.875,£0
+20090205_sanitc_1st-Lien,Sanitec,5th February 2009,sanitc,1st-Lien,True,33.5,33.625,€2 million to buy
+20090205_sanitc_2nd-Lien,Sanitec,5th February 2009,sanitc,2nd-Lien,True,4,4,€0
+20090203_equstr_CDS,Equistar,3rd February 2009,equstr,CDS,False,27.5,30.375,$33.476 million to sell
+20090203_lyodel_CDS,Lyondell,3rd February 2009,lyodel,CDS,True,15.5,23.25,$143.238 million to sell
+20090203_lyodel_LCDS,Lyondell,3rd February 2009,lyodel,LCDS,True,20.75,23.125,$138 million to sell
+20090203_millen_CDS,Millennium,3rd February 2009,millen,CDS,False,7.125,6.125,$10.15 million to sell
+20090114_ecuado_CDS,Ecuador,14th January 2009,ecuado,CDS,False,31.375,32.375,$77.482 million to buy
+20090106_tribco_CDS,Tribune,6th January 2009,tribco,CDS,True,1.5,3.5,$765 million to sell
+20090106_tribco_LCDS,Tribune,6th January 2009,tribco,LCDS,True,23.75,22.75,$2 million to sell
+20100422_jalcor_CDS,Japan Airlines Corporation,22 April 2010,jalcor,CDS,True,20,18,JPY 300 million to sell
+20100415_carstn_LCDS-LIEN1,McCarthy and Stone,15 April 2010,carstn,LCDS-LIEN1,True,70.375,70.375,£0 million to buy
+20100325_aiful_CDS,Aiful,25 March 2010,aiful,CDS,True,33.875,31.375,"JPY 17,020.6 million to sell"
+20100218_cemex_CDS,CEMEX,18 February 2010,cemex,CDS,True,97,92,$90.425 million to buy
+20100107_fgic_CDS,Financial Guaranty Insurance Company (FGIC),7 January 2010,fgic,CDS,True,26,19.75,$182.255 million to buy
+['20101210_ABK_CDS'],Ambac Financial Group,10 December 2010,ABK,CDS,False,['9.5'],['12.75'],['USD 407.905 million to sell']
+"['20101209_ANGBKL_CDS-Subordinated-Bucket2', '20101209_ANGBKL_CDS-Subordinated-Bucket3', '20101209_ANGBKL_CDS-SNR-or-SUB-Bucket1', '20101209_ANGBKL_CDS-Senior-Bucket3', '20101209_ANGBKL_CDS-Senior-Bucket2']",Anglo Irish Bank,09 December 2010,ANGBKL,CDS-Senior-Bucket2,True,"['18.25', '18', '74.5', '74.5', '76']","['18.5', '18.25', '78.25', '76.25', '77.125']","['EUR 11.25 million to sell', 'EUR 30 million to sell', 'EUR 104.05 million to sell', 'EUR 22.55 million to buy', 'EUR 23.5 million to sell']"
+['20101028_TAKFUJ_CDS'],Takefuji Corp,28 October 2010,TAKFUJ,CDS,False,['14.75'],['13.25'],['JPY 21200 million to sell']
+['20100921_BOSG_LCDS'],"Boston Generating, LLC",21 September 2010,BOSG,LCDS,False,['96.75'],['95.875'],['USD 5 million to buy']
+['20100909_WorldDir-B07_LCDS'],Truvo (formerly known as World Directories),09 September 2010,WorldDir-B07,LCDS,False,['41.125'],['41.125'],['EUR 0']
+['20100715_TRUVO-SubCo_CDS'],Truvo Subsidiary Corp,15 July 2010,TRUVO-SubCo,CDS,False,['3'],['3'],['EUR 235.263 million to sell']
+['20100604_ABK-AssurCorp_CDS'],Ambac Assurance Corp,04 June 2010,ABK-AssurCorp,CDS,False,['20'],['27.5'],['USD 300.098 million to sell']
+['20111215_AMR_CDS'],AMR Corp,15 December 2011,AMR,CDS,False,['23.5'],['22'],['USD 119.485 million to buy']
+['20111213_PMI_CDS'],PMI Group,13 December 2011,PMI,CDS,False,['16.5'],['18.125'],['USD 375.588 million to sell']
+['20111209_SPGIM_CDS'],Seat Pagine Gialle,09 December 2011,SPGIM,CDS,False,['10'],['12.75'],['EUR 66.75 million to sell']
+['20111129_DYNHLD_CDS'],"Dynegy Holdings, LLC",29 November 2011,DYNHLD,CDS,False,['71.25'],['69.5'],['USD 61.156 million to buy']
+['20111123_PANRIC_LCDS'],Panrico,23 November 2011,PANRIC,LCDS,False,['8.125'],['8.125'],['None']
+['20111109_JVC_CDS'],Victor Company of Japan,09 November 2011,JVC,CDS,False,['93.75'],['94.5'],['JPY 2400 million to sell']
+"['20111005_IPBS2_CDS-Senior-Bucket-1', '20111005_IPBS2_CDS-Senior-Bucket-2']",Irish Life and Permanent - August Restructuring,05 October 2011,IPBS2,CDS-Senior-Bucket-2,True,"['86', '75']","['86', '75.125']","['None', 'EUR 10 million to buy']"
+"['20110729_IPBS_CDS-Senior-Bucket1', '20110729_IPBS_CDS-Senior-Bucket2', '20110729_IPBS_CDS-Senior-Bucket3', '20110729_IPBS_CDS-Subordinated-Bucket1', '20110729_IPBS_CDS-Subordinated-Bucket2', '20110729_IPBS_CDS-Subordinated-Bucket3']",Irish Life and Permanent,29 July 2011,IPBS,CDS-Subordinated-Bucket3,True,"['83', '71', '71', '38.25', '21.375', '20']","['81.75', '71.125', '70.125', '38.25', '21.375', '20.875']","['EUR 25 million to buy', 'EUR 11.6 million to sell', 'EUR 10 million to buy', 'EUR 11.5 million to sell', 'None', 'EUR 5 million to sell']"
+"['20110728_BKIR_CDS-SNR-or-SUB-Bucket1', '20110728_BKIR_CDS-Senior-Bucket2', '20110728_BKIR_CDS-Senior-Bucket3', '20110728_BKIR_CDS-Senior-Bucket6', '20110728_BKIR_CDS-Subordinated-Bucket2', '20110728_BKIR_CDS-Subordinated-Bucket3', '20110728_BKIR_CDS-Subordinated-Bucket6']",The Governor and Company of the Bank of Ireland,28 July 2011,BKIR,CDS-Subordinated-Bucket6,True,"['86.5', '76.625', '72.875', '72.5', '35.625', '37.25', '34.25']","['86', '75.125', '74.25', '72.5', '34.125', '34.5', '34.25']","['EUR 31 million to buy', 'EUR 12.8 million to sell', 'EUR 5.15 million to buy', 'None', 'EUR 3 million to sell', 'EUR 28 million to buy', 'EUR 3 million to buy']"
+"['20110630_AIB_CDS-Senior', '20110630_AIB_CDS-Subordinated']",Allied Irish Bks PLC,30 June 2011,AIB,CDS-Subordinated,True,"['70.125', '10.375']","['71.375', '12']","['EUR 2.05 million to buy', 'EUR 22.65 million to buy']"
+['20110202_ANGBKL2_CDS-25-years-maturity'],Anglo Irish Bank Corporation Limited Credit Event  December Restructuring,02 February 2011,ANGBKL2,CDS-25-years-maturity,False,['71.25'],['73'],['EUR 7.9 million to buy']
+['20121206_OSG_CDS'],OVERSEAS SHIPHOLDING GROUP INC,06 December 2012,OSG,CDS,False,['35.5'],['38'],['USD 41.185 million to sell']
+['20121115_ELCDS-Yell_LCDS-LIEN1'],Yell Limited,15 November 2012,ELCDS-Yell,LCDS-LIEN1,False,['50'],['31.5'],['EUR 18.5 million to buy']
+['20120606_GM-ResCLLC_CDS'],Residential Cap LLC,06 June 2012,GM-ResCLLC,CDS,False,['17.625'],['18.625'],['USD 29.032 million to buy']
+['20120530_HTNMIF_CDS'],Houghton Mifflin Harcourt Publishing Co,30 May 2012,HTNMIF,CDS,False,['55.5'],['55.625'],['USD 16.165 million to sell']
+['20120509_SIFO_CDS'],Sino Forest Corp,09 May 2012,SIFO,CDS,False,['29'],['28.625'],['USD 36.05 million to sell']
+"['20120502_ELCDS-Eircom_LCDS-LIEN2', '20120502_ELCDS-Eircom_LCDS-LIEN1']",Eircom,02 May 2012,ELCDS-Eircom,LCDS-LIEN1,True,"['7.125', '62']","['8.125', '63.625']","['1 million to buy', '39 million to sell']"
+['20120426_HAWKER-Acqui_LCDS'],Hawker Beechcraft Acquisition Co LLC,26 April 2012,HAWKER-Acqui,LCDS,False,['63.5'],['64.5'],['3 million to buy']
+['20120329_ERCIFT_CDS'],ERC Ireland Fin Ltd,29 March 2012,ERCIFT,CDS,False,['0'],['1'],['EUR 123.3 million to sell']
+['20120328_FCGIA_LCDS'],Financiere Gaillon 7,28 March 2012,FCGIA,LCDS,False,['98'],['92.25'],['5 million to buy']
+['20120322_HITACH-Elpida_CDS'],Elpida Memory,22 March 2012,HITACH-Elpida,CDS,False,['21'],['20.125'],['JPY 1800 million to sell']
+['20120319_GREECE_CDS'],Hellenic Republic,19 March 2012,GREECE,CDS,False,['21.5'],['21.75'],['EUR 291.6 million to sell']
+['20120222_EK_CDS'],Eastman Kodak Co,22 February 2012,EK,CDS,False,['23.875'],['22.875'],['USD 226.369 million to sell']
+"['20120202_NRAMC_CDS-Bucket-1', '20120202_NRAMC_CDS-Bucket-2']",Northern Rock (Asset Management) plc,02 February 2012,NRAMC,CDS-Bucket-2,True,"['104.25', '99.125']","['99.25', '98.5']","['EUR 17.5 million to buy', 'EUR 11 million to buy']"
+['20120117_Seat-A05_LCDS'],SEAT,17 January 2012,Seat-A05,LCDS,False,['45'],['60.25'],['13.649 million to sell']
+['20131204_OGXPET_CDS'],OGX PETROLEO E GAS PARTICIPACOES SA,04 December 2013,OGXPET,CDS,False,['9'],['9'],['USD 0.2 million to buy']
+['20131009_CODSA-Fin_CDS'],CODERE Fin LUXEMBOURG SA,09 October 2013,CODSA-Fin,CDS,False,['54.5'],['48.125'],['EUR 103.45 million to buy']
+['20130806_CENGLQ_LCDS'],Cengage Learning Acquisitions Inc,06 August 2013,CENGLQ,LCDS,False,['74'],['74'],['0 million']
+['20130606_URBISA_CDS'],Urbi Desarrollos Urbanos S A Bursatil de Cap Variable,06 June 2013,URBISA,CDS,False,['19'],['24.5'],['USD 72.9 million to sell']
+"['20130605_BANKSA_CDS-SNR-or-SUB-Bucket-1', '20130605_BANKSA_CDS-SNR-or-SUB-Bucket-2', '20130605_BANKSA_CDS-SNR-or-SUB-Bucket-3', '20130605_BANKSA_CDS-SNR-or-SUB']",Bankia,05 June 2013,BANKSA,CDS-SNR-or-SUB,True,"['96.25', '88.5', '86.5', '87.5']","['97.125', '87.875', '87.75', '87.5']","['EUR 12.7 million to buy', 'EUR 7.5 million to sell', 'EUR 10 million to sell', 'EUR 21 million to buy']"
+['20130424_DXMI_LCDS'],"Dex Media West, Inc.",24 April 2013,DXMI,LCDS,False,['79'],['78.875'],['2 million to buy']
+['20130424_SPMD_LCDS'],SuperMedia Inc.,24 April 2013,SPMD,LCDS,False,['74.625'],['74.625'],['2 million to buy']
+"['20130404_SNSBNK_CDS-SNR-or-SUB-Bucket-1', '20130404_SNSBNK_CDS-SNR-or-SUB']",SNS Bank NV,04 April 2013,SNSBNK,CDS-SNR-or-SUB,True,"['95.5', '85.5']","['96.375', '88.75']","['EUR 13 million to sell', 'EUR 11.65 million to sell']"
+['20130131_PJHOLDCO_LCDS'],Mediannuaire,31 January 2013,PJHOLDCO,LCDS,False,['40'],['40.5'],['EUR 2 million to buy']
+['20130116_EIX-EdMisEnergy_CDS'],Edison Mission Energy,16 January 2013,EIX-EdMisEnergy,CDS,False,['48.5'],['47.75'],['USD 6.25 million to buy']
+['20140903_ARGENT_CDS'],Argentine Republic,03 September 2014,ARGENT,CDS,False,['39.5'],['40.25'],['USD 96.03 million to buy']
+['20140819_SOLOGRO_LCDS'],Solocal Group S.A. (formerly known as PagesJaunes Group S.A.),19 August 2014,SOLOGRO,LCDS,False,['88.5'],['89.5'],['EUR 0.5 million to buy']
+['20140521_TXU-Texas-LCDS_LCDS-LIEN1'],Texas Competitive Electric Holdings Company LLC. LCDS,21 May 2014,TXU-Texas-LCDS,LCDS-LIEN1,False,['78.75'],['77.25'],['USD 141 million to buy']
+['20140521_ENERGFU_CDS'],Energy Future Holdings Corp.,21 May 2014,ENERGFU,CDS,False,['56.125'],['57.125'],['USD 23.944 million to buy']
+['20140521_ENERFUT_CDS'],Energy Future Intermediate Holding Company LLC/EFIH Finance Inc.,21 May 2014,ENERFUT,CDS,False,['105.75'],['105.75'],['0 Million']
+['20140521_TXU-Texas_CDS'],Texas Competitive Electric Holdings Company LLC,21 May 2014,TXU-Texas,CDS,False,['8.5'],['8.75'],['USD 70.75 million to sell']
+['20151006_UKRAIN_CDS'],Ukraine,06 October 2015,UKRAIN,CDS,False,['80.625'],['79.625'],['USD 15.45 million to sell']
+['20150917_AAHI_CDS'],Alpha Appalachia Hldgs Inc,17 September 2015,AAHI,CDS,False,['6'],['14.125'],['USD 47.638 million to sell']
+['20150623_SABINOI_CDS'],Sabine Oil Gas Corp,23 June 2015,SABINOI,CDS,False,['15.875'],['14.875'],['USD 46.833 million to sell']
+['20150305_RSH_CDS'],RadioShack Corp,05 March 2015,RSH,CDS,False,['11.5'],['11'],['USD 59.318 million to sell']
+"['20150219_CESEOP_CDS', '20150219_CESEOP_LCDS']",Caesars Entmt Oper Co Inc,19 February 2015,CESEOP,LCDS,True,"['15.875', '96']","['14.875', '92.25']","['USD 49.094 million to sell', '37 million to buy']"
+['20160824_GRUPOIS_CDS'],Grupo Isolux Corsan Finance B.V.,24 August 2016,GRUPOIS,CDS,False,['15.75'],['18.625'],['EUR 56.9 million to sell']
+['20160817_CMNWPR_CDS'],Commonwealth of Puerto Rico,17 August 2016,CMNWPR,CDS,False,['58.5'],['58'],['USD 8.265 million to buy']
+['20160721_PLTMPL-IntFin_CDS'],Portugal Telecom International Finance B.V.,21 July 2016,PLTMPL-IntFin,CDS,False,['20'],['19.375'],['EUR 86.2 million to sell']
+"['20160622_NSINO_CDS-Bucket', '20160622_NSINO_CDS-Bucket-3', '20160622_NSINO_CDS-Bucket-4', '20160622_NSINO_CDS']",Norske Skogindustrier ASA,22 June 2016,NSINO,CDS,True,"['29.625', '27', '12', '2.25']","['29.625', '27', '20.625', '3.5']","['EUR 34.1 million to sell', 'EUR 0 million', 'EUR 5.55 million to sell', 'EUR 69.25 million to sell']"
+['20160504_PLCOAL_CDS'],Peabody Engy Corp,04 May 2016,PLCOAL,CDS,False,['11'],['11.125'],['65.267 million to sell']
+['20160406_PACIEXP_CDS'],PACIFIC EXPL PRODTN CORP,06 April 2016,PACIEXP,CDS,False,['20'],['19.375'],['USD 1.23 million to sell']
+['20160114_ABNG_CDS'],ABENGOA SA,14 January 2016,ABNG,CDS,False,['4.625'],['6.5'],['EUR 329.4 million to sell']
+['20171213_PDV_CDS'],"Petróleos de Venezuela, S.A.",13 December 2017,PDV,CDS,False,['17.625'],['19.25'],['USD 105.92 million to sell']
+['20171212_VENZ_CDS'],Bolivarian Republic of Venezuela,12 December 2017,VENZ,CDS,False,['24.5'],['23.5'],['USD 105.133 million to buy']
+"['20171101_MONTE_CDS-2003-Bucket-2', '20171101_MONTE_CDS-2003-Bucket-1']",Bca Monte dei Paschi di Siena S p A,01 November 2017,MONTE,CDS-2003-Bucket-1,True,"['99.875', '100']","['100.75', '100.75']","['EUR 5.5 million to sell', 'EUR 55.05 million to buy']"
+['20171011_TOYS_LCDS'],TOYS R US DELAWARE INC,11 October 2017,TOYS,LCDS,False,['30.625'],['30.625'],['USD 0 million to buy']
+['20171011_TOY_CDS-Senior'],TOYS R US INC,11 October 2017,TOY,CDS-Senior,False,['26'],['30.25'],['USD 81.172 million to sell']
+"['20171005_BPESP_CDS-2003-Bucket-1', '20171005_BPESP_CDS-2003-Bucket-2']",Banco Popular Español SA,05 October 2017,BPESP,CDS-2003-Bucket-2,True,"['100.375', '102.5']","['101.25', '102.5']","['EUR 10 million to buy', 'EUR 0 million']"
+['20170921_MONTE_CDS-2014'],Bca Monte dei Paschi di Siena S p A,21 September 2017,MONTE,CDS-2014,False,['49.5'],['48.75'],['EUR 2.95 million to buy']
+"['20170914_NSINO_CDS-Bucket', '20170914_NSINO_CDS-Bucket-3', '20170914_NSINO_CDS-Bucket-4', '20170914_NSINO_CDS']",Norske Skogindustrier ASA,14 September 2017,NSINO,CDS,True,"['29.625', '27', '12', '2.25']","['29.625', '27', '20.625', '3.5']","['EUR 34.1 million to sell', 'EUR 0 million', 'EUR 5.55 million to sell', 'EUR 69.25 million to sell']"
+['20170802_PREPA_CDS'],Puerto Rico Electric Power Authority,02 August 2017,PREPA,CDS,False,['59'],['59.5'],['USD 3.84 million to sell']
+['20170711_GENOENE_CDS'],GenOn Energy Inc,11 July 2017,GENOENE,CDS,False,['61'],['64.5'],['USD 63.805 million to sell']
+['20170301_AV_LCDS'],Avaya Inc,01 March 2017,AV,LCDS,False,['80.5'],['80.5'],['0 million to buy']
+"['20170202_IHEAINC_iHeartCommunications-Inc', '20170202_IHEAINC_iHeartCommunications-Inc', '20170202_IHEAINC_CDS', '20170202_IHEAINC_LCDS']",iHeartCommunications Inc,02 February 2017,IHEAINC,LCDS,True,"['35.5', '83.25', '35.5', '83.25']","['36.875', '83.25']","['USD 181.982 million to sell', '0.0']"
+['20181129_ASTL_CDS'],ASTALDI S per Azioni,29 November 2018,ASTL,CDS,False,['30.875'],['29'],['EUR 37.4 million to buy']
+['20181127_NOVOBAN_CDS-Senior'],NOVO BCO SA (senior SRO transactions only),27 November 2018,NOVOBAN,CDS-Senior,False,['89.96'],['NA'],[]
+['20180906_BPESP_CDS-Subordinate'],Banco Popular Español SA,06 September 2018,BPESP,CDS-Subordinate,False,['0'],['0'],['N/A']
+['20180502_NOVOBAN_CDS-Bucket'],NOVO BCO SA (Non-SRO Transactions),02 May 2018,NOVOBAN,CDS-Bucket,False,['87'],['87'],['EUR 0 million to buy']
+['20180425_NINEWES_CDS'],Nine West Hldgs Inc,25 April 2018,NINEWES,CDS,False,['12.5'],['11.5'],['USD 162.351 million to sell']
+['20180425_NBLGP_CDS'],Noble Group Ltd,25 April 2018,NBLGP,CDS,False,['45.25'],['46'],['USD 6.3 million to sell']
+['20191210_DNSFDS_CDS'],Dean Foods Co,10 December 2019,DNSFDS,CDS,False,['9.25'],['10.5'],['USD 180.986 million to sell']
+['20191030_THCP_CDS-Senior'],THOMAS COOK GROUP PLC,30 October 2019,THCP,CDS-Senior,False,['10.125'],['9.125'],['EUR 171.7 million to sell']
+['20190925_STEIEUR_CDS'],STEINHOFF EUROPE AG,25 September 2019,STEIEUR,CDS,False,['84'],['83.5'],['EUR 8.4 million to buy']
+['20190911_TOGUN_CDS-Senior'],TOP GUN REALISATIONS 61 LTD,11 September 2019,TOGUN,CDS-Senior,False,['100'],['NA'],['EUR 0 million to buy']
+['20190807_GALAPHO_CDS'],Galapagos Hldg SA,07 August 2019,GALAPHO,CDS,False,['6.875'],['5.875'],['EUR 14.4 million to sell']
+['20190724_WFT_CDS-Senior'],Weatherford Itl Ltd,24 July 2019,WFT,CDS-Senior,False,['44.5'],['45.125'],['USD 93.312 million to sell']
+['20190627_GENP_CDS'],Rallye,27 June 2019,GENP,CDS,False,['12.5'],['14.875'],['167.15 million to sell']
+['20190605_NEWLOOAC_CDS'],NEW LOOK SR ISSUER PLC,05 June 2019,NEWLOOAC,CDS,False,['0'],['1.5'],['EUR 58.8 million to sell']
+['20190403_WINDSSE_CDS'],Windstream Services LLC,03 April 2019,WINDSSE,CDS,False,['29.5'],['26.75'],['USD 68.204 million to buy']
+['20190227_PCGPacGasElec_CDS'],Pac Gas & Elec Co,27 February 2019,PCGPacGasElec,CDS,False,['77.75'],['76.75'],['USD 20.8 million to sell']
+['20190123_PKD_CDS'],Parker Drilling Co,23 January 2019,PKD,CDS,False,['49'],['55.75'],['USD 47.397 million to sell']
+['20190117_SHC-Acceptance_CDS'],Sears Roebuck Accep Corp,17 January 2019,SHC-Acceptance,CDS,False,['79.875'],['55.625'],['USD 44.936 million to buy']
+['20201020_SELEGRO_CDS'],Selecta Group BV,20 October 2020,SELEGRO,CDS,False,['51.625'],['50.125'],['7.8 million to sell']
+['20201001_PIZZAFI_CDS'],Pizzaexpress Fing 1 PLC,01 October 2020,PIZZAFI,CDS,False,['0.125'],['2.625'],['GBP 47.75 million to sell']
+['20200915_MATAFIN_CDS'],MATALAN FIN PLC,15 September 2020,MATAFIN,CDS,False,['36.5'],['38.375'],['GBP 11.5 million to sell']
+['20200910_NE_CDS'],Noble Corp,10 September 2020,NE,CDS,False,['1'],['1.25'],['USD 111.585 million to sell']
+['20200908_HEMABON_CDS'],HEMA BondCo I BV,08 September 2020,HEMABON,CDS,False,['68.5'],['67.75'],['EUR 4.4 million to sell']
+['20200804_CHK_CDS'],Chesapeake Engy Corp,04 August 2020,CHK,CDS,False,['3.5'],['4.5'],['USD 265.626 million to sell']
+['20200729_WIREAG_CDS'],Wirecard AG,29 July 2020,WIREAG,CDS,False,['11'],['12.875'],['EUR 50.1 million to sell']
+['20200707_CALIRES_CDS'],CA RES CORP,07 July 2020,CALIRES,CDS,False,['1.125'],['2.875'],['USD 69.043 million to sell']
+['20200624_F-Hertz_CDS'],HERTZ CORP,24 June 2020,F-Hertz,CDS,False,['26.375'],['25.375'],['USD 111.525 million to sell']
+['20200612_ARGENT_CDS'],Argentine Rep,12 June 2020,ARGENT,CDS,False,['31.5'],['34.5'],['USD 310.886 million to sell']
+['20200609_JCP_CDS-Senior'],J C Penney Co Inc,09 June 2020,JCP,CDS-Senior,False,['0.125'],['1.375'],['USD 352.117 million to sell']
+['20200604_INTINV_CDS'],Intelsat Invts SA,04 June 2020,INTINV,CDS,False,['100'],['NA'],['USD 0 million to buy']
+['20200529_THENEI_CDS'],Neiman Marcus Group LLC,29 May 2020,THENEI,CDS,False,['3'],['3.5'],['USD 178.711 million to sell']
+['20200522_DO_CDS-Senior'],Diamond Offshore Drilling Inc,22 May 2020,DO,CDS-Senior,False,['7.375'],['6.375'],['USD 176.585 million to sell']
+['20200519_ECUA_CDS'],Rep of Ecuador,19 May 2020,ECUA,CDS,False,['34.875'],['34.5'],['USD 27.282 million to buy']
+['20200513_FRCA_CDS-Senior'],Frontier Comms Corp,13 May 2020,FRCA,CDS-Senior,False,['28.75'],['28.25'],['USD 116.631 million to sell']
+['20200506_WHPEC_CDS-Senior'],Whiting Petroleum Corp,06 May 2020,WHPEC,CDS-Senior,False,['7'],['9.5'],['USD 192.773 million to sell']
+['20200423_LEBAN_CDS'],Lebanese Rep,23 April 2020,LEBAN,CDS,False,['14.125'],['16.375'],['USD 108.7 million to sell']
+['20200310_MCLTHY_CDS'],McClatchy Co,10 March 2020,MCLTHY,CDS,False,['2'],['5.375'],['USD 62.563 million to sell']
+['20210113_EUROPMO_CDS'],Europcar Mobility Group,13 January 2021,EUROPMO,CDS,False,['100'],['73'],['43.3 million to buy']
+['20220928_UKRAIN_CDS'],Ukraine,28 September 2022,UKRAIN,CDS,False,['17.875'],['18'],['USD 41 million to buy']
+['20220912_RUSSIA_CDS'],Russian Fedn,12 September 2022,RUSSIA,CDS,False,['56.125'],['48.375'],['USD 502.4 million to buy']
+['20220607_TALEENE_CDS'],Talen Energy Supply LLC,07 June 2022,TALEENE,CDS,False,['70'],['59'],['USD 106.048 million to buy']
+['20230413_DIAMSPO_CDS'],DIAMOND SPORTS GROUP LLC,13 April 2023,DIAMSPO,CDS,False,['1.75'],['2'],['USD 44.7 million to sell']
