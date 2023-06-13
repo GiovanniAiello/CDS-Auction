@@ -538,7 +538,7 @@ for i in range(length):
         df = pandas.DataFrame(temp[0])
         table_title = table.find_previous('h2').text
         df.to_csv(
-            path_output_csv + "/" + parsed_date + "_" + ticker + "_" + box_title + "_" + str(table_title)[0:34] +  str(idx) + ".csv",
+            path_output_csv + "/" + parsed_date + "_" + ticker + "_" + box_title + "_" + str(table_title)[0:34] + "_" + str(idx) + ".csv",
             index=False)
 
     # Save final price to CSV
