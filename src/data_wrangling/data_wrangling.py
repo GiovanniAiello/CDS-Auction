@@ -143,11 +143,62 @@ for index, row in data.iterrows():
     data.at[index, 'noi_usd'] = row['noi_absolute_value'] / exchange_rate
 
 
+spread_list = []
+
+
+# Iterate over each row of the dataset
+for index, row in data.iterrows():
+    identifier = row['identifier']
+
+    # Find the file based on the identifier
+    matching_files = [
+    file for file in os.listdir(database_path)
+    if file.endswith('.csv')
+    and identifier in file
+    and "Dealer,Bid,Offer" in open(os.path.join(database_path, file)).readline()]
+
+    if matching_files:
+        file_path = os.path.join(database_path, matching_files[0])
+        print(f"Processing file: {file_path}")
+
+        df = pd.read_csv(file_path)
+        print("Columns in the file:")
+        print(df.columns)
+
+        # Check if the bid and offer columns exist
+        if 'Bid' in df.columns and 'Offer' in df.columns:
+            # Calculate the spread
+            df['Spread'] = df['Offer'] - df['Bid']
+            max_spread = df['Spread'].max()
+
+            # Append the max spread to the spread_list
+            spread_list.append(max_spread)
+            print(f"Max spread for identifier {identifier}: {max_spread}")
+        else:
+            print(f"Error: Bid or Offer column not found in file.")
+
+    else:
+        print(f"Error: No matching file found for identifier {identifier}")
+        spread_list.append(None)
+
+# Add the spread column to the data
+data['spread'] = spread_list
+
+
+# Calculate price cap/floor based on NOI direction, IMM, and spread
+data['price_limit'] = data.apply(lambda row: row['IMM'] - (row['spread'] / 2) if row['noi_direction'] == -1 else (row['IMM'] + (row['spread'] / 2) if row['noi_direction'] == 1 else row['IMM']), axis=1)
+
 # Specify the file path and name for saving the updated DataFrame
-output_folder = "../../data/final_database"
+output_folder = "data/final_database"
 os.makedirs(output_folder, exist_ok=True)
 output_csv = os.path.join(output_folder, "auctions_main_updated.csv")
+output_csv_fullpath = os.path.abspath(output_csv)
+print(f"Saving the updated DataFrame to: {output_csv_fullpath}")
 
 # Save the updated DataFrame as CSV
-data.to_csv(output_csv, index=False)
-print(f"Updated DataFrame saved as: {output_csv}")
+try:
+    data.to_csv(output_csv, index=False)
+    print("Updated DataFrame saved successfully.")
+except Exception as e:
+    print(f"Error occurred while saving the DataFrame: {e}")
+
