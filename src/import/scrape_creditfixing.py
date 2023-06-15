@@ -449,7 +449,7 @@ for i in range(length):
         box_title = table.find_previous('div', class_='boxtitle').text.strip()
         if "Nortel" in box_title:
             box_title = "CDS"
-        elif box_title in ["Edscha", "Ferretti"]:
+        elif box_title in ["Edscha", "Ferretti", "SSP"]:
             box_title = "LCDS" 
         box_title = box_title.replace(" ", "-")  # Replace spaces with underscores
         # Create the CSV file title

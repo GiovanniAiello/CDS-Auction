@@ -71,7 +71,7 @@ identifier,auction_name,date,ticker,box_title,multiple_final_prices,final_price,
 20090721_leacor_LCDS,Lear Corp,21st July 2009,leacor,LCDS,True,66.0,67.75,$70 million to sell,70000000.0,1.0,USD,1.0,USD/USD,96992000.0,3.0,69.25
 20090730_brabin_Senior,Bradford & Bingley,30th July 2009,brabin,Senior,True,94.625,85.875,€145.334 million to buy,145334000.0,-1.0,EUR,0.7115918309257809,USD/EUR,204237870.20000002,4.0,83.875
 20090730_brabin_Subordinated,Bradford & Bingley,30th July 2009,brabin,Subordinated,True,5.0,6.0,€27.67 million to sell,27670000.0,1.0,EUR,0.7115918309257809,USD/EUR,38884651.0,4.0,8.0
-20091008_sspflt_LCDS,SSP,8th October 2009,sspflt,LCDS,False,52.375,52.375,£0,0.0,0.0,GBP,0.6231795705479917,USD/GBP,0.0,,52.375
+20091008_sspflt_LCDS,SSP,8th October 2009,sspflt,LCDS,False,52.375,52.375,£0,0.0,0.0,GBP,0.6231795705479917,USD/GBP,0.0,5.0,52.375
 20091022_thmbrd_2.5-year-maturity-bucket,Thomson,22nd October 2009,thmbrd,2.5-year-maturity-bucket,True,96.25,91.25,€80.967 million to sell,80967000.0,1.0,EUR,0.6666666666666666,USD/EUR,121450500.0,10.0,96.25
 20091022_thmbrd_5-year-maturity-bucket,Thomson,22nd October 2009,thmbrd,5-year-maturity-bucket,True,65.125,80.375,€220.669 million to sell,220669000.0,1.0,EUR,0.6666666666666666,USD/EUR,331003500.0,10.0,85.375
 20091022_thmbrd_7.5-year-maturity-bucket,Thomson,22nd October 2009,thmbrd,7.5-year-maturity-bucket,True,63.25,80.0,€147.568 million to sell,147568000.0,1.0,EUR,0.6666666666666666,USD/EUR,221352000.0,10.0,85.0

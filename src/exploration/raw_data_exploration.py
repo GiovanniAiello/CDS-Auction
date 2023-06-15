@@ -100,11 +100,20 @@ for file in csv_files:
             print("Computed IMM: ",IMM)
 
             # Add the computed and real IMM values to the plot
-            plt.axvline(IMM, color='green', linestyle='dashed', label='Computed IMM')
+            #plt.axvline(IMM, color='green', linestyle='dashed', label='Computed IMM')
             
-            # Extract the relevant parts from the name of the file
-            name_parts = name.split("_")[:3]
-            identifier = "_".join(name_parts)
+                       # Split the filename by underscores
+            name_parts = name.split('_')
+
+            # If the filename has 4 parts, join the first 3 parts to form the identifier
+            if len(name_parts) == 5:
+                identifier = "_".join(name_parts[:3])
+            # If the filename has more parts, join the first 4 parts to form the identifier
+            elif len(name_parts) > 5:
+                identifier = "_".join(name_parts[:4])
+            # Otherwise, use the whole name as the identifier
+            else:
+                identifier = name
 
             # Find the corresponding row in auctions_main_updated
             row = auctions_main_updated[auctions_main_updated['identifier'] == identifier]
@@ -112,32 +121,19 @@ for file in csv_files:
             if not row.empty:
                 real_IMM = row['IMM'].values[0]
                 print("Real IMM: ", real_IMM)
-                plt.axvline(real_IMM, color='orange', linestyle='solid', label='Real IMM')
+                plt.axvline(real_IMM, color='red', linestyle='solid', label='IMM')
 
                 # Compare the computed IMM with the real one
                 if computed_IMM is not None:
                     difference = computed_IMM - real_IMM
                     print("Difference: ", difference)
 
-            name_parts = name.split("_")[:4]
-            identifier = "_".join(name_parts)
 
-            # Find the corresponding row in auctions_main_updated
-            row = auctions_main_updated[auctions_main_updated['identifier'] == identifier]
-
-            if not row.empty:
-                real_IMM = row['IMM'].values[0]
-                print("Real IMM: ", real_IMM)
-                plt.axvline(real_IMM, color='orange', linestyle='solid', label='Real IMM')
-                # Compare the computed IMM with the real one
-                if computed_IMM is not None:
-                    difference = computed_IMM - real_IMM
-                    print("Difference: ", difference)
 
             plt.legend(handles=[Line2D([0], [0], marker='s', color='w', label='Offer', markerfacecolor=offer_color, markersize=11),
                     Line2D([0], [0], marker='s', color='w', label='Bid', markerfacecolor=bid_color, markersize=11), 
                     Line2D([0], [0], color='red', label='IMM', linestyle='solid'),
-                    Line2D([0], [0], color='green', label='Computed IMM', linestyle='dashed'),
+                    #Line2D([0], [0], color='brown', label='Computed IMM', linestyle='dashed'),
                     Line2D([0], [0], color='grey', linestyle='solid', label='Avg Bid and Offer')], loc='upper left')
             plt.subplots_adjust(top=0.9, bottom=0.05)  # Adjust the top and bottom spacing as desired
             plt.savefig(os.path.join(path_out_fig_first, "Initial_Market_Submissions", name + "_p.png"), format='png', bbox_inches='tight')
@@ -201,14 +197,12 @@ if not os.path.exists(path_lo_fig):
     os.makedirs(path_lo_fig)
 # find all the csv files in the directory specified by path whose names contain the string "Limit Orders". 
 csv_files = glob.glob(os.path.join(data_path, "*Limit Orders*.csv"))
-
+# sort the files by the first 8 characters of their filename
+csv_files.sort(key=lambda x: int(os.path.basename(x)[:8]))
 ## create colors for plots
 # Create a color map for the dots
 cmap = cm.get_cmap('tab20')  # Example using 'tab20' colormap# Set the number of colors you want
 n_colors = 15
-# sort the files by the first four characters of their filename
-csv_files.sort(key=lambda x: int(os.path.basename(x)[:8]))
-
 
 unique_dealers = set() # Create an empty set
 
@@ -346,6 +340,11 @@ for file in csv_files:
 
 # ### Limit  orders when NOI to sell
 
+csv_files_orders = glob.glob(os.path.join(data_path, "*Limit Orders*.csv"))
+csv_files_bids = glob.glob(os.path.join(data_path, "*Limit Bids*.csv"))
+csv_files = csv_files_orders + csv_files_bids
+csv_files.sort(key=lambda x: int(os.path.basename(x)[:8]))
+
 
 ## Create Auction to Sell Plots: left side by dealer and right side aggregate
 for file in csv_files:
@@ -353,6 +352,10 @@ for file in csv_files:
         if "Bid" in open(file).read():
             print(file)
             df = pd.read_csv(file)
+            print(f"Columns in the dataframe: {df.columns}")
+            for column in df.columns:
+                if 'bid' in column.lower():
+                    df.rename(columns={column: 'Bid'}, inplace=True)
             df['Bid'] = df['Bid'].astype(str)
             df['Bid'] = df['Bid'].replace(to_replace='#', value='', regex=True)
             # Replace '*' character with an escaped version in the 'Dealer' column
@@ -374,7 +377,11 @@ for file in csv_files:
             df['Bid'] = df['Bid'].replace(to_replace='\^', value='', regex=True)
             df = df.replace(regex=r'\*|\*\*', value='')
             df['Bid'] = pd.to_numeric(df['Bid'])
-            
+            for column in df.columns:
+                if 'size' in column.lower() or 'quotation amount' in column.lower():
+                    df.rename(columns={column: 'Size'}, inplace=True)
+            print(df.head())
+            df['Size'] = pd.to_numeric(df['Size'], errors='coerce')
             df_agg = df.groupby(['Dealer', 'Bid', 'Filled'])['Size'].sum().reset_index()
             df_agg = df_agg.sort_values(by='Bid', ascending=False)
             df_agg['CumulativeSize'] = df_agg.groupby(['Dealer'])['Size'].cumsum()
