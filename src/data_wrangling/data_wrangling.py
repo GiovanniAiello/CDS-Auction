@@ -1,6 +1,8 @@
 import pandas as pd
 import re
 import os
+import glob
+
 print(os.getcwd())
 # Specify the file path to the dataset
 dataset_path = 'data/final_database/auctions_main.csv'
@@ -188,6 +190,44 @@ data['spread'] = spread_list
 # Calculate price cap/floor based on NOI direction, IMM, and spread
 data['price_limit'] = data.apply(lambda row: row['IMM'] - (row['spread'] / 2) if row['noi_direction'] == -1 else (row['IMM'] + (row['spread'] / 2) if row['noi_direction'] == 1 else row['IMM']), axis=1)
 
+
+
+import pandas as pd
+import glob
+import re
+
+# Create a new column 'n_dealers' to store the number of bidders
+data['n_dealers'] = 0
+
+# Iterate over each row of the dataset
+for index, row in data.iterrows():
+    identifier = row['identifier']
+    
+    # Find the bid files based on the identifier and "*Limit Orders*.csv"
+    matching_files = glob.glob(os.path.join(database_path, f'*{identifier}**Limit Orders*.csv'))
+    csv_files_bids = glob.glob(os.path.join(database_path, f'*{identifier}**Limit Bids*.csv'))
+    matching_files = matching_files + csv_files_bids
+    if matching_files:
+        unique_bidders = set()
+
+        for file_path in matching_files:
+            df = pd.read_csv(file_path)
+            
+            # Clean the dealer names by removing * and ** and excluding '.' and '"'
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\*+', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'[."]+', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r',', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\(\s+', '(', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\s+\)', ')', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].str.strip()
+
+            # Add the unique bidders to the set
+            unique_bidders.update(df['Dealer'])
+        
+        # Update the 'n_dealers' column with the number of unique bidders
+        data.at[index, 'n_dealers'] = len(unique_bidders)
+
+
 # Specify the file path and name for saving the updated DataFrame
 output_folder = "data/final_database"
 os.makedirs(output_folder, exist_ok=True)
@@ -201,4 +241,3 @@ try:
     print("Updated DataFrame saved successfully.")
 except Exception as e:
     print(f"Error occurred while saving the DataFrame: {e}")
-

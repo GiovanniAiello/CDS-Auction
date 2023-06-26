@@ -4,6 +4,7 @@
 # %%
 ## import necessary libraries
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import os
@@ -13,6 +14,9 @@ import matplotlib.colors as mcolors # used for creating a color map for the dots
 import re # used for regular expressions
 from matplotlib.patches import Patch
 
+
+# Set the default font size
+matplotlib.rcParams.update({'font.size': 12})
 
 ## set up the directories
 path = os.getcwd()
@@ -36,7 +40,7 @@ auctions_main_updated = pd.read_csv(auctions_main_updated_path)
 # Create colors for plots
 bid_color = 'darkorange'
 offer_color = 'royalblue'
-
+'''
 counter = 0
 for file in csv_files:
     try:
@@ -172,19 +176,33 @@ for file in csv_files:
         plt.figure(figsize=(18, 10))  # Set the figure size to 18x10
         #plt.suptitle(name)
 
-        plt.scatter(df[df["Size_signed"] > 0]['Size_signed'], df[df["Size_signed"] > 0]['Dealer'], marker='s')
-        plt.scatter(df[df["Size_signed"] < 0]['Size_signed'], df[df["Size_signed"] < 0]['Dealer'], marker='o')
-        plt.scatter(df[df["Size_signed"] == 0]['Size_signed'], df[df["Size_signed"] == 0]['Dealer'], marker='x')
+        # Separate the data based on the sign of Size_signed
+        bid_data = df[df["Size_signed"] < 0]
+        offer_data = df[df["Size_signed"] > 0]
+        flat_data = df[df["Size_signed"] == 0]
+
+        # Create the bar plots
+        plt.barh(bid_data['Dealer'], bid_data['Size_signed'], color= bid_color, label= 'Bid')
+        plt.barh(offer_data['Dealer'], offer_data['Size_signed'], color= offer_color, label= 'Offer')
+        plt.barh(flat_data['Dealer'], flat_data['Size_signed'], color='green')
+        #plt.scatter(flat_data['Dealer'], flat_data['Size_signed'], marker='x', color='green', label='Flat')
+
         plt.axvline(x=0, linestyle='--', color="darkgrey")
 
         plt.xlabel("Size signed")
         plt.ylabel("Dealer")
-        plt.legend(["Flat", "Bid", "Offer"])  # Add legend
+        legend_handles = [
+            plt.Rectangle((0, 0), 1, 1, color=bid_color),
+            plt.Rectangle((0, 0), 1, 1, color=offer_color)
+        ]
+        legend_labels = ['Bid', 'Offer']
+        plt.legend(legend_handles, legend_labels)
+
 
         plt.savefig(os.path.join(path_out_fig_first, "PSR", name + "_q.png"), format='png', bbox_inches='tight')
         plt.close()
             
-
+'''
 
 # ### Limit Orders when NOI to Buy
 
@@ -206,6 +224,79 @@ n_colors = 15
 
 unique_dealers = set() # Create an empty set
 
+def capitalize_plc(string):
+    # Match 'plc' or 'Plc' and replace with 'PLC'
+    string = re.sub(r'\bplc\b', 'PLC', string, flags=re.IGNORECASE)
+    # Match 'PLC' at the end of the string and capitalize it
+    string = re.sub(r'PLC$', 'PLC', string, flags=re.IGNORECASE)
+    return string
+
+def replace_ltd(string):
+    # Match 'Ltd' or 'Limited' and replace with 'LTD'
+    string = re.sub(r'\b(Ltd|Limited)\b', 'LTD', string, flags=re.IGNORECASE)
+    return string
+
+def replace_incorporated(string):
+    # Replace 'Incorporated' with 'Inc'
+    string = re.sub(r'\bIncorporated\b', 'Inc', string, flags=re.IGNORECASE)
+    return string
+
+def replace_national_association(string):
+    # Replace 'National Association' with 'NA'
+    string = re.sub(r'\bNational Association\b', 'NA', string, flags=re.IGNORECASE)
+    return string
+
+def replace_aktiengesellschaft(string):
+    # Replace 'Aktiengesellschaft' with 'AG' (case-insensitive)
+    string = re.sub(r'\bAktiengesellschaft\b', 'AG', string, flags=re.IGNORECASE)
+    return string
+
+def capitalize_bnp_paribas(string):
+    # Capitalize 'BNP Paribas' in the string
+    string = re.sub(r'(?i)\bBNP Paribas\b', 'BNP Paribas', string)
+    return string
+
+def capitalize_deutsche_bank(string):
+    # Capitalize 'Deutsche Bank' in the string
+    string = re.sub(r'(?i)\bDeutsche Bank\b', 'Deutsche Bank', string)
+    return string
+
+def capitalize_citigroup_global_markets(string):
+    # Capitalize 'Citigroup Global Markets' in the string
+    string = re.sub(r'(?i)\bCitigroup Global Markets\b', 'Citigroup Global Markets', string)
+    return string
+
+def capitalize_morgan_stanley(string):
+    # Capitalize 'Morgan Stanley & Co' in the string
+    string = re.sub(r'(?i)\bMorgan Stanley & Co\b', 'Morgan Stanley & Co', string)
+    return string
+
+def remove_branch(string):
+    # Remove the word 'Branch' from the string
+    string = re.sub(r'\bBranch\b', '', string)
+    return string.strip()
+
+def capitalize_barclays_bank(string):
+    # Capitalize 'Barclays Bank' in the string
+    string = re.sub(r'(?i)\bBarclays Bank\b', 'Barclays Bank', string)
+    return string
+
+# Function to replace values in the 'Dealer' column
+def replace_dealer_value(value):
+    if isinstance(value, str):
+        value = value.replace('The Hongkong & Shanghai Banking Corporation', 'HSBC')
+        value = value.replace('The Royal Bank of Scotland', 'Royal Bank of Scotland')
+        value = value.replace('JPMorgan', 'JPM')
+        value = value.replace('Bank Of America', 'BofA')
+        value = value.replace('Bank of America', 'BofA')
+        value = value.replace('Bofa', 'BofA')
+        value = value.replace('Banc of America', 'BofA')
+    return value
+
+# Create a directory to store the CSV files
+csv_participants_dir = 'data/participants'
+os.makedirs(csv_participants_dir, exist_ok=True)
+
 ## Create Limit Order Plots: left side by dealer and right side aggregate
 for file in csv_files:
     try: #to handle errors
@@ -215,7 +306,32 @@ for file in csv_files:
             df['Offer'] = df['Offer'].astype(str)
             df['Offer'] = df['Offer'].replace(to_replace='#', value='', regex=True) # Replacing the '#' character with nothing in the 'Offer' column.
             # Replace '*' character with an escaped version in the 'Dealer' column
-            df['Dealer'] = df['Dealer'].str.replace(r'\*', '', regex=True)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\*+', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'[."]+', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r',', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\(\s+', '(', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\s+\)', ')', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\s+', ' ', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_plc(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_ltd(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_incorporated(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_national_association(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_aktiengesellschaft(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_bnp_paribas(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_deutsche_bank(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_citigroup_global_markets(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_morgan_stanley(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: remove_branch(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_barclays_bank(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].str.replace(r'\band\b', '&', regex=True)
+            df['Dealer'] = df['Dealer'].str.replace(r'\bTokyo\b', '', regex=True)
+            df['Dealer'] = df['Dealer'].str.replace(r'Soci\xe9t\xe9 G\xe9n\xe9rale', 'Societe Generale', regex=True)
+            df['Dealer'] = df['Dealer'].str.replace(r'\bJP Morgan\b', 'JPMorgan', regex=True)           
+            # Apply the replacement function to the 'Dealer' column
+            df['Dealer'] = df['Dealer'].apply(replace_dealer_value)
+
+            df['Dealer'] = df['Dealer'].str.strip()
+
 
             # Remove '*' and '**' characters from column names using regular expression pattern
             df.columns = [re.sub(r'\*{1,2}', '', col) for col in df.columns]
@@ -240,7 +356,8 @@ for file in csv_files:
             auction_outcome = df_agg[df_agg['Filled'] == 1]['Offer'].max() # Getting the final price of the auction by finding the minimum value in the 'Offer' column of the df_agg dataframe.
             dealers = df_agg.Dealer.unique() # Create a list of unique dealers
             unique_dealers.update(dealers) # Add the unique values to the set
-
+            # Create a DataFrame to store the bid participants
+            participants_df = pd.DataFrame({'Dealers': dealers})
             # Create a figure with 2 subplots, one for the dealer plots and one for the aggregate supply
             fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 9))
             filename = os.path.basename(file)
@@ -270,7 +387,7 @@ for file in csv_files:
                 ax1.axvline(auction_outcome, color='blue',  linestyle='dotted', linewidth=2, label="Auction Outcome") # Plot a horizontal line at the final price
             ax1.set_ylabel('Cumulative Size') # Set the x-axis label as 'Cumulative Size'
             ax1.set_xlabel('Offer') # Set the y-axis label as 'Offer'
-            ax1.legend(loc = 'best', fontsize=7)  # Create a legend and set the location as 'best' and font size as 7
+            ax1.legend(loc = 'best', fontsize=10)  # Create a legend and set the location as 'best' and font size as 7
             
             ax2.set_title("Aggregate Supply")
             ax2.step(df['Offer'], df['CumulativeSize'], where='post', color='grey')  # Plot the aggregate supply data on the right axes using step function
@@ -290,7 +407,6 @@ for file in csv_files:
             # Otherwise, use the whole name as the identifier
             else:
                 identifier = name
-
             # Find the corresponding row in auctions_main_updated
             row = auctions_main_updated[auctions_main_updated['identifier'] == identifier]
 
@@ -326,10 +442,14 @@ for file in csv_files:
             handles.extend([filled_patch, partial_patch])
 
             # And add them all to the legend
-            ax2.legend(handles=handles, loc='best', fontsize=7) # Create a legend and set the location as 'best' and font size as 7
+            ax2.legend(handles=handles, loc='best', fontsize=10) # Create a legend and set the location as 'best' and font size as 7
             # Saving the figure and displying it 
             plt.savefig(os.path.join(path_lo_fig, name + "Offer.png"), format='png', bbox_inches='tight') # The code is saving the figure in the path specified by the path_lo_fig variable and appending the name of the file with 'Offer.png' and format is set to png
             plt.close()   # The code is clearing the current figure to free up memory
+                        # Define the file path to save the bid participants CSV file
+            output_path = os.path.join(csv_participants_dir, name + 'Offer_participants.csv')
+            # Save the DataFrame as a CSV file
+            participants_df.to_csv(output_path, index=False)
     # Handling exceptions        
     except Exception as e:
         print(f'An error occurred while processing {file} at iteration {i} : {e}')
@@ -346,6 +466,8 @@ csv_files = csv_files_orders + csv_files_bids
 csv_files.sort(key=lambda x: int(os.path.basename(x)[:8]))
 
 
+
+
 ## Create Auction to Sell Plots: left side by dealer and right side aggregate
 for file in csv_files:
     try:
@@ -359,7 +481,30 @@ for file in csv_files:
             df['Bid'] = df['Bid'].astype(str)
             df['Bid'] = df['Bid'].replace(to_replace='#', value='', regex=True)
             # Replace '*' character with an escaped version in the 'Dealer' column
-            df['Dealer'] = df['Dealer'].str.replace(r'\*', '', regex=True)
+                        # Clean the dealer names by removing * and ** and excluding '.' and '"'
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\*+', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'[."]+', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r',', '', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\(\s+', '(', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\s+\)', ')', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\s+', ' ', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_plc(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_ltd(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_incorporated(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_national_association(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: replace_aktiengesellschaft(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_bnp_paribas(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_deutsche_bank(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_citigroup_global_markets(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_morgan_stanley(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: remove_branch(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: capitalize_barclays_bank(x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].str.replace(r'\band\b', '&', regex=True)
+            df['Dealer'] = df['Dealer'].str.replace(r'\bTokyo\b', '', regex=True)
+            df['Dealer'] = df['Dealer'].str.replace(r'Soci\xe9t\xe9 G\xe9n\xe9rale', 'Societe Generale', regex=True)
+            df['Dealer'] = df['Dealer'].str.replace(r'\bJP Morgan\b', 'JPMorgan', regex=True)
+            df['Dealer'] = df['Dealer'].apply(replace_dealer_value)
+            df['Dealer'] = df['Dealer'].str.strip()
 
             # Remove '*' and '**' characters from column names using regular expression pattern
             df.columns = [re.sub(r'\*{1,2}', '', col) for col in df.columns]
@@ -388,8 +533,9 @@ for file in csv_files:
 
             auction_outcome = df_agg[df_agg['Filled'] == 1]['Bid'].min()# Getting the final price of the auction by finding the msximum value in the 'Bid' column of the df_agg dataframe.
             dealers = df_agg.Dealer.unique() # Create a list of unique dealers
-            unique_dealers.update(dealers) # Add the unique values to the set
 
+            unique_dealers.update(dealers)
+            participants_df = pd.DataFrame({'Dealers': dealers})
             # Create a figure with 2 subplots, one for the dealer plots and one for the aggregate demand
             fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 9))
             filename = os.path.basename(file)
@@ -420,7 +566,7 @@ for file in csv_files:
                 ax1.axvline(auction_outcome, color='blue',  linestyle='dotted', linewidth=2, label="Auction Outcome") 
             ax1.set_ylabel('Cumulative Size') # Set the x-axis label as 'Cumulative Size'
             ax1.set_xlabel('Bid') # Set the y-axis label as 'Bid'
-            ax1.legend(loc = 'best', fontsize=7)  # Create a legend and set the location as 'best' and font size as 7
+            ax1.legend(loc = 'best', fontsize=10)  # Create a legend and set the location as 'best' and font size as 7
 
             ax2.set_title("Aggregate Demand")
             ax2.step(df['Bid'], df['CumulativeSize'], where='post', color='grey')  # Plot the aggregate demand data on the right axes
@@ -474,10 +620,13 @@ for file in csv_files:
             # Combine them
             handles.extend([filled_patch, partial_patch])
 
-            ax2.legend(handles=handles, loc='best', fontsize=7) # Create a legend and set the location as 'best' and font size as 7
+            ax2.legend(handles=handles, loc='best', fontsize=10) # Create a legend and set the location as 'best' and font size as 7
             # Saving the figure and displying it 
             plt.savefig(os.path.join(path_lo_fig, name + "Bid.png"), format='png', bbox_inches='tight') # The code is saving the figure in the path specified by the path_lo_fig variable and appending the name of the file with 'Bid.png' and format is set to png
             plt.close()   # The code is clearing the current figure to free up memory
+            output_path = os.path.join(csv_participants_dir, name + 'Bid_participants.csv')
+            # Save the DataFrame as a CSV file
+            participants_df.to_csv(output_path, index=False)
     # Handling exceptions        
     except Exception as e:
         print(f'An error occurred while processing {file} at iteration {i} : {e}')
@@ -485,3 +634,12 @@ for file in csv_files:
             f.write(f'An error occurred while processing {file} at iteration {i} : {e}\n')
      # Handling any exceptions that may occur during the processing of the file by printing an error message and writing the error message to an 'error_log.txt' file. 
 
+# Convert the unique_dealers set to a DataFrame and sort alphabetically
+unique_dealers_df = pd.DataFrame({'Dealer': sorted(list(unique_dealers))})
+
+
+# Define the file path to save the unique dealers
+output_path = 'output/tables/unique_dealers.csv'
+
+# Save the DataFrame as a CSV file
+unique_dealers_df.to_csv(output_path, index=False)
