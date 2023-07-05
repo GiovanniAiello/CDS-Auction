@@ -100,7 +100,7 @@ percentile_10_noi_absolute_value = round(percentile_10_noi_absolute_value, 2)
 percentile_90_noi_absolute_value = round(percentile_90_noi_absolute_value, 2)
 
 # Create a DataFrame to store the descriptive statistics
-descriptive_stats = pd.DataFrame(columns=['Variable', 'N', 'Mean', 'SD', 'Min', '10th P', 'Median', '90th P', 'Max'])
+descriptive_stats = pd.DataFrame(columns=['Variable', 'N', 'Mean', 'SD', 'Min', 'P10', 'P50', 'P90', 'Max'])
 
 # Final Price
 descriptive_stats.loc[0] = ['Final Price', auctions_with_stage2_after_2005.shape[0], round_descriptive_stats_final_price['mean'], round_descriptive_stats_final_price['std'],

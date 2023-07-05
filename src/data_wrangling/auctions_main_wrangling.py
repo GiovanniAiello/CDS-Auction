@@ -202,10 +202,10 @@ data['n_dealers'] = 0
 # Iterate over each row of the dataset
 for index, row in data.iterrows():
     identifier = row['identifier']
-    
+    print(identifier)
     # Find the bid files based on the identifier and "*Limit Orders*.csv"
-    matching_files = glob.glob(os.path.join(database_path, f'*{identifier}**Limit Orders*.csv'))
-    csv_files_bids = glob.glob(os.path.join(database_path, f'*{identifier}**Limit Bids*.csv'))
+    matching_files = glob.glob(os.path.join(database_path, f'*{identifier}_Limit Orders*.csv'))
+    csv_files_bids = glob.glob(os.path.join(database_path, f'*{identifier}_Limit Bids*.csv'))
     matching_files = matching_files + csv_files_bids
     if matching_files:
         unique_bidders = set()
@@ -219,12 +219,14 @@ for index, row in data.iterrows():
             df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r',', '', x) if isinstance(x, str) else x)
             df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\(\s+', '(', x) if isinstance(x, str) else x)
             df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\s+\)', ')', x) if isinstance(x, str) else x)
+            df['Dealer'] = df['Dealer'].apply(lambda x: re.sub(r'\s+', ' ', x) if isinstance(x, str) else x)
             df['Dealer'] = df['Dealer'].str.strip()
 
             # Add the unique bidders to the set
             unique_bidders.update(df['Dealer'])
         
         # Update the 'n_dealers' column with the number of unique bidders
+        print(unique_bidders)
         data.at[index, 'n_dealers'] = len(unique_bidders)
 
 

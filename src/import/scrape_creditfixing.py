@@ -263,6 +263,8 @@ for i in range(length):
                 box_title = box_title_div.text.strip()
                 if not multiple_final_prices:
                     box_title = "CDS"
+                if ticker.lower() in ['hawtel', 'masoni']:  # Add this line
+                    box_title = "LCDS"  # And this line
                 if not multiple_final_prices or box_title != auction_name:  
                     print(f"Box Title: {box_title}")
                     box_title = box_title.replace(" ", "-")  # Replace spaces with underscores
@@ -563,6 +565,8 @@ for i in range(length):
         writer_imm.writeheader()
         writer_imm.writerow({'inside_market_midpoint': inside_market_midpoint})
 
+# Define a list of identifiers to be excluded
+exclude_identifiers = ['20170914_NSINO_CDS-Bucket', '20170914_NSINO_CDS-Bucket-3', '20170914_NSINO_CDS-Bucket-4', '20160622_NSINO_CDS']
 
 for year in post_2009_years:
     auctionIds = reqpars_y(urlyears_post2009, year).select('a[href^="holdings.jsp"]')
@@ -631,6 +635,9 @@ for year in post_2009_years:
                         print(f"Net Open Interest: {net_open_interest}")
                         identifier = f"{parsed_date}_{ticker}_{sanitized_box_title}"
                         print(f"Identifier: {identifier}")
+                            # Check if identifier is in exclude_identifiers
+                        if identifier in exclude_identifiers:
+                            continue  # Skip to the next iteration
                         auction_info.append([identifier, auction_name, date, ticker, sanitized_box_title, multiple_final_prices, final_price, initial_market_midpoint, net_open_interest])
                         
         # Create sanitized file name for Final Price
@@ -691,6 +698,12 @@ os.makedirs(output_folder, exist_ok=True)
 output_csv = os.path.join(output_folder, "auctions_main.csv")
 
 auction_info = sorted(auction_info, key=lambda x: x[0])
+
+
+
+# Filter the rows by excluding rows with the identifiers
+auction_info = [row for row in auction_info if row[0] not in exclude_identifiers]
+
 
 with open(output_csv, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
