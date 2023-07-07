@@ -8,7 +8,7 @@ current_directory = os.getcwd()
 data_directory = os.path.join(current_directory, 'data')
 
 # Define the directory containing the XLS files and CSV
-raw_data_directory = os.path.join(data_directory, 'deliverable_obligations', 'intermediate', 'deliverable_obligations_nanonets')
+raw_data_directory = os.path.join(data_directory, 'deliverable_obligations', 'processed_pdf_nanonets')
 
 # Define the directory to store the output CSV files
 output_directory = os.path.join(data_directory, 'deliverable_obligations', 'intermediate')

@@ -333,7 +333,7 @@ df_final.to_csv(file_path, index=False)
 
 print("Final dataframe saved to:", file)
 
-file_names = ['20200423_LEBAN_CDS_delivarable-obligations.csv', '20171212_VENZ_CDS_deliverable-obligations.csv']
+file_names = ['20200423_LEBAN_CDS_deliverable-obligations.csv', '20171212_VENZ_CDS_deliverable-obligations.csv']
 
 for file_name in file_names:
     file_path = os.path.join(output_directory, file_name)

@@ -2,6 +2,8 @@ import pandas as pd
 import re
 import os
 import glob
+from currency_converter import CurrencyConverter
+from dateutil import parser
 
 print(os.getcwd())
 # Specify the file path to the dataset
@@ -113,8 +115,6 @@ data['currencies_exchange'].fillna(data['currency'] + '/' + data['currency'], in
 data.loc[data['exchange_rate'].isnull(), 'exchange_rate'] = 1
 
 
-from currency_converter import CurrencyConverter
-from dateutil import parser
 
 # Create an instance of CurrencyConverter
 c = CurrencyConverter()
@@ -191,10 +191,6 @@ data['spread'] = spread_list
 data['price_limit'] = data.apply(lambda row: row['IMM'] - (row['spread'] / 2) if row['noi_direction'] == -1 else (row['IMM'] + (row['spread'] / 2) if row['noi_direction'] == 1 else row['IMM']), axis=1)
 
 
-
-import pandas as pd
-import glob
-import re
 
 # Create a new column 'n_dealers' to store the number of bidders
 data['n_dealers'] = 0

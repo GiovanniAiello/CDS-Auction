@@ -1,3 +1,4 @@
+
 import os
 import pandas as pd
 import re
@@ -12,8 +13,21 @@ raw_data_directory = os.path.join(data_directory, 'deliverable_obligations', 'ra
 # Define the directory to store the output CSV files
 output_directory = os.path.join(data_directory, 'deliverable_obligations', 'intermediate')
 
-# Create an empty DataFrame to store the data
-df = pd.DataFrame()
+# List of files to skip
+files_to_skip = [
+    "20090730_brabin_deliverable-obligations.xls",
+    "20101209_ANGBKL_CDS_deliverable-obligations.xls",
+    "20110728_BKIR_CDS_deliverable-obligations.XLS",
+    "20110729_IPBS_CDS_deliverable-obligations.XLS",
+    "20110202_ANGBKL2_CDS_deliverable-obligations.xls",
+    "20110630_AIB_CDS_deliverable-obligations.XLS",
+    "20111005_IPBS2_CDS_deliverable-obligations.XLS",
+    "20081006_famefrmc_deliverable-obligations.xls",
+    "20081106_kaupth_deliverable-obligations.xls",
+    "20081105_glitni_deliverable-obligations.xls",
+    "20081104_landsb_deliverable-obligations.xls",
+]
+
 
 # List of patterns to search for
 patterns = [r'\bisin\b', r'\bcusip\b']
@@ -27,14 +41,17 @@ for year in range(2006, 2024):
 
         # Loop through each XLS or CSV file in the folder
         for filename in os.listdir(year_folder_path):
-            if filename.endswith('.xls') or filename.endswith('.xlsx') or filename.endswith('.csv'):
+            if filename in files_to_skip:
+                print(f"Skipping file: {filename}")
+                continue
+            if filename.endswith('.xls') or filename.endswith('.xlsx') or filename.endswith('.XLS') or filename.endswith('.csv'):
                 print(f"Processing file: {filename}")
                 
                 # File path
                 file_path = os.path.join(year_folder_path, filename)
 
                 # Read the XLS or CSV file without specifying a header
-                if filename.endswith('.xls') or filename.endswith('.xlsx'):
+                if filename.endswith('.xls') or filename.endswith('.xlsx') or filename.endswith('.XLS'):
                     data = pd.read_excel(file_path, header=None)
                 else:
                     data = pd.read_csv(file_path, header=None)
@@ -86,6 +103,9 @@ for year in range(2006, 2024):
 
                     # Ensure that the 'isin' column is of type string
                     output_data['isin'] = output_data['isin'].astype(str)
+
+                    # Replace ", " with "\n" to unify the separators
+                    output_data['isin'] = output_data['isin'].str.replace(',', '\n')
 
                     # Replace " and " with "\n" to unify the separators
                     output_data['isin'] = output_data['isin'].str.replace(' and ', '\n')
