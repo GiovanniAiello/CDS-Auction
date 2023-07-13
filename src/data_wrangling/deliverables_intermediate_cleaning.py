@@ -361,10 +361,12 @@ for file in csv_files:
     df = df.dropna(subset=df.columns[0:], how='all')
     df = df[df.iloc[:, 0].str.len() > 0]
     df.iloc[:, 1:] = df.iloc[:, 1:].astype(str).apply(lambda x: x.str.replace(',', '').str.strip())
+    # Remove superscript 1 (Unicode '\xb9') and superscript 2 (Unicode '\xb2') characters from the data, 
+    # and then trim leading and trailing whitespaces.
     df.iloc[:, 1:] = df.iloc[:, 1:].astype(str).apply(lambda x: x.str.replace('\xb9', '').str.strip())
     df.iloc[:, 1:] = df.iloc[:, 1:].astype(str).apply(lambda x: x.str.replace('\xb2', '').str.strip())
     df = df[df.iloc[:, 1].astype(str).str.len() > 4]
-    df = df[df.iloc[:, 1].astype(str).str.len() <= 30]
+    df = df[df.iloc[:, 1].astype(str).str.len() <= 38]
     df.iloc[:, 1:] = df.iloc[:, 1:].astype(str).apply(lambda x: x.str.replace('*', '').str.strip())
     df = df[~(df.iloc[:, 1].str.strip().str.upper() == 'CUSIP')]
     df = df[~(df.iloc[:, 1].str.strip().str.title().isin(['Spread', 'Final Maturity']))]
@@ -455,7 +457,9 @@ df.to_csv(file_path, index=False)
 
 
 # Set the output directory path and the list of files
-files = ['20190724_WFT_CDS_deliverable-obligations.csv', '20111215_AMR_CDS_deliverable-obligations.csv']
+files = ['20190724_WFT_CDS_deliverable-obligations.csv', 
+         '20111215_AMR_CDS_deliverable-obligations.csv',
+         '20090612_genmtr_CDS_deliverable-obligations.csv']
 
 # Loop over the files
 for file in files:
@@ -479,7 +483,7 @@ for file in files:
 
     # Loop through the 'cusip / isin' or 'isin / cusip' column
     for index, row in df.iterrows():
-        if len(row[col_name]) == 9:  # CUSIPs are typically 9 characters
+        if 8 <= len(row[col_name]) <= 9:  # CUSIPs are typically 9 characters
             cusip.append(row[col_name])
             isin.append('')
         elif len(row[col_name]) == 12:  # ISINs are typically 12 characters

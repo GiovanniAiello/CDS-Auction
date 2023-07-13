@@ -138,6 +138,32 @@ descriptive_stats.loc[3] = ['N Dealers', auctions_with_stage2_after_2005.shape[0
                             round_descriptive_stats_n_dealers['50%'], percentile_90_n_dealers,
                             round_descriptive_stats_n_dealers['max']]
 
+
+
+# Filter the data for non-zero and non-empty n_bonds
+auctions_with_stage2_nonzero_bonds = auctions_with_stage2_after_2005[auctions_with_stage2_after_2005['n_bonds'].notnull() & 
+                                                                     (auctions_with_stage2_after_2005['n_bonds'] != 0)]
+
+# Compute descriptive statistics for n_bonds
+descriptive_stats_n_bonds = auctions_with_stage2_nonzero_bonds['n_bonds'].describe()
+
+# Compute 10th and 90th percentiles separately for n_bonds
+percentile_10_n_bonds = np.percentile(auctions_with_stage2_nonzero_bonds['n_bonds'], 10)
+percentile_90_n_bonds = np.percentile(auctions_with_stage2_nonzero_bonds['n_bonds'], 90)
+
+# Round the descriptive statistics and percentiles to the second decimal place
+round_descriptive_stats_n_bonds = descriptive_stats_n_bonds.round(2)
+percentile_10_n_bonds = round(percentile_10_n_bonds, 2)
+percentile_90_n_bonds = round(percentile_90_n_bonds, 2)
+
+# Add the n_bonds summary statistics to the descriptive_stats DataFrame
+descriptive_stats.loc[4] = ['N Bonds', auctions_with_stage2_nonzero_bonds.shape[0], round_descriptive_stats_n_bonds['mean'], round_descriptive_stats_n_bonds['std'],
+                            round_descriptive_stats_n_bonds['min'], percentile_10_n_bonds,
+                            round_descriptive_stats_n_bonds['50%'], percentile_90_n_bonds,
+                            round_descriptive_stats_n_bonds['max']]
+
+
+
 # Save the descriptive statistics as CSV
 descriptive_stats.to_csv('output/tables/descriptive_stats.csv', index=False)
 

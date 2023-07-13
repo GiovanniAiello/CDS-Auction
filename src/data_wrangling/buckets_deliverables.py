@@ -73,17 +73,16 @@ data = pd.read_csv(file_path)
 # Delete the old file
 os.remove(file_path)
 
-# Extract rows 2-3 and save them to new file
-bucket_1 = data.iloc[1:3]  # Python uses 0-based indexing
+# Adjusting for new mapping
+bucket_1 = data.iloc[1:3].append(data.iloc[8:10])  # Rows 2-3 (Reg S) and 9-10 (Rule 144A)
 bucket_1.to_csv(new_file_path_1, index=False)
 
-# Extract rows 2-4 and save them to new file
-bucket_2 = data.iloc[1:4]
+bucket_2 = data.iloc[1:4].append(data.iloc[8:11])  # Rows 2-4 (Reg S) and 9-11 (Rule 144A)
 bucket_2.to_csv(new_file_path_2, index=False)
 
-# Extract rows 2-6 and save them to new file
-bucket_3 = data.iloc[1:6]
+bucket_3 = data.iloc[1:6].append(data.iloc[8:13])  # Rows 2-6 (Reg S) and 9-13 (Rule 144A)
 bucket_3.to_csv(new_file_path_3, index=False)
+
 
 
 

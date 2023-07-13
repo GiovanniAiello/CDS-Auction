@@ -103,6 +103,15 @@ for year in range(2006, 2024):
 
                     # Ensure that the 'isin' column is of type string
                     output_data['isin'] = output_data['isin'].astype(str)
+                    
+                    # Define a regex pattern for "(see footnotes ...)"
+                    pattern = r'\(see footnotes.*?\)'
+
+                    # Loop through all the columns that can potentially contain the 'see footnotes' text
+                    for col in ['isin']:
+                        if col in output_data.columns:
+                            output_data[col] = output_data[col].str.replace(pattern, '', regex=True)
+
 
                     # Replace ", " with "\n" to unify the separators
                     output_data['isin'] = output_data['isin'].str.replace(',', '\n')
@@ -110,6 +119,8 @@ for year in range(2006, 2024):
                     # Replace " and " with "\n" to unify the separators
                     output_data['isin'] = output_data['isin'].str.replace(' and ', '\n')
 
+                    # Replace "   " with "\n" to unify the separators
+                    output_data['isin'] = output_data['isin'].str.replace('   ', '\n')
                     # Replace " / " with "\n" to unify the separators
                     output_data['isin'] = output_data['isin'].str.replace(' / ', '\n')
                     # Split the ISINs and explode into separate rows
@@ -129,17 +140,17 @@ for year in range(2006, 2024):
 
                 # Filter out the rows where 'isin' or 'cusip' is empty, less than 5 characters or more than 30 characters
                 if 'isin' in output_data.columns and 'cusip' in output_data.columns:
-                    output_data = output_data[((output_data['isin'].str.len() >= 5) & (output_data['isin'].str.len() <= 30)) | 
-                                              ((output_data['cusip'].str.len() >= 5) & (output_data['cusip'].str.len() <= 30))]
+                    output_data = output_data[((output_data['isin'].str.len() >= 5) ) | 
+                                              ((output_data['cusip'].str.len() >= 5) )]
 
                 elif 'isin' in output_data.columns:  # If only 'isin' exists
-                    output_data = output_data[(output_data['isin'].str.len() >= 5) & (output_data['isin'].str.len() <= 30)]
+                    output_data = output_data[(output_data['isin'].str.len() >= 5)]
 
                 elif 'cusip' in output_data.columns:  # If only 'cusip' exists
                     output_data = output_data
 
                 # List of words to filter out
-                filter_words = ['notes', 'loan', 'security', 'cusip', 'numbers']
+                filter_words = ['loan', 'security', 'cusip', 'numbers', 'NOTES:', 'Credit', 'Lehman Brothers', 'Accreted', 'Weinstein']
 
                 # Apply the filter
                 if 'isin' in output_data.columns:
